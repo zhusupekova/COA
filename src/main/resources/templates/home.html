@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Лабораторная работа 1</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #f3f5f8; color: #18263b; font-family: system-ui, sans-serif; line-height: 1.6; }
+        main { max-width: 840px; margin: 10vh auto; padding: 36px; }
+        .label { color: #596579; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+        h1 { font-size: clamp(30px, 6vw, 48px); line-height: 1.15; margin: 16px 0 24px; }
+        .status { display: inline-block; padding: 8px 16px; border-radius: 24px; background: #dceee4; color: #185b37; font-weight: 600; }
+        .intro { font-size: 19px; max-width: 640px; }
+        section { margin-top: 32px; padding-top: 20px; border-top: 1px solid #d4dae3; }
+        h2 { font-size: 21px; }
+        dl { display: grid; grid-template-columns: 130px 1fr; gap: 12px 20px; }
+        dt { color: #596579; } dd { margin: 0; font-weight: 500; }
+        a { color: #2258a1; text-underline-offset: 4px; }
+        footer { margin-top: 36px; color: #596579; font-size: 14px; }
+        @media (max-width: 480px) { main { margin: 4vh auto; padding: 24px; } dl { grid-template-columns: 1fr; gap: 4px; } dd { margin-bottom: 12px; } }
+    </style>
+</head>
+<body>
+<main>
+    <div class="label">КГТУ имени И Раззакова · Сервис-ориентированное проектирование ПО</div>
+    <h1>Лабораторная работа 1</h1>
+    <p class="status" th:text="${message}">Статус приложения</p>
+    <p class="intro">Базовый проект Spring Boot. Эта страница обрабатывается контроллером и формируется на сервере с помощью Thymeleaf.</p>
+    <section aria-labelledby="project-title">
+        <h2 id="project-title">О проекте</h2>
+        <dl>
+            <dt>Платформа</dt><dd>Java 17 и Spring Boot 2.7.18</dd>
+            <dt>Представление</dt><dd>Spring MVC и Thymeleaf</dd>
+            <dt>Хранилище</dt><dd>PostgreSQL · таблица tasks</dd>
+        </dl>
+        <p>В проекте подготовлены пакеты controller, model, entity, repository и service. Управление задачами будет добавлено в следующих лабораторных.</p>
+    </section>
+    <footer><a href="https://github.com/zhusupekova/COA">Исходный код на GitHub</a></footer>
+</main>
+</body>
+</html>

@@ -17,9 +17,13 @@ class Lab1ApplicationTests {
     @Autowired private JdbcTemplate jdbc;
 
     @Test
-    void emptyApplicationStartsAndServesHttp() {
-        // В лабораторной 1 контроллеров ещё нет, поэтому ожидается HTTP 404.
-        assertThat(http.getForEntity("/", String.class).getStatusCode())
+    void homePageRendersThymeleafMessage() {
+        var response = http.getForEntity("/", String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody())
+                .contains("Лабораторная работа 1", "Приложение Spring Boot запущено")
+                .doesNotContain("${message}", "th:text");
+        assertThat(http.getForEntity("/missing-page", String.class).getStatusCode())
                 .isEqualTo(HttpStatus.NOT_FOUND);
     }
 
